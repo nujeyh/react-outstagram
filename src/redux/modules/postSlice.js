@@ -58,7 +58,7 @@ export const updateFB = (postObj) => {
       layout: postObj.layout,
     });
 
-    dispatch(editPost(postObj.uid));
+    dispatch(editPost(postObj));
   };
 };
 
@@ -108,12 +108,14 @@ const postSlice = createSlice({
     // 게시물 수정하기
     editPost: (state, { payload }) => {
       state.post = state.post.map((post) => {
-        if (post.uid === payload.uid)
-          post = {
+        if (post.uid === payload.uid) {
+          return {
+            ...post,
             text: payload.text,
             fileUrl: payload.fileUrl,
             layout: payload.layout,
           };
+        } else return post;
       });
     },
     //게시물 삭제하기
