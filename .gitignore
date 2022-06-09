@@ -22,4 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
-yarn.lock
+.firebaserc
+.gitignore
+firestore.indexes.json
+firebase.json
+firestore.rules
+.firebase/hosting.YnVpbGQ.cache
