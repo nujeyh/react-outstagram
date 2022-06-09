@@ -49,23 +49,39 @@ const SignIn = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
+
       <p>{error}</p>
-      <button type="submit" disabled={!(email && password)}>
-        로그인
-      </button>
+
+      <div>
+        <button type="submit" disabled={!(email && password)}>
+          로그인
+        </button>
+      </div>
     </FormWrap>
   );
 };
 
-const FormWrap = styled.form`
-  height: 100vh;
+export const FormWrap = styled.form`
+  max-width: 400px;
+  background-color: white;
+  border: solid lightgray 1px;
+  border-radius: 3px;
+  margin: 20% auto;
+  padding: 1em;
+  h2 {
+    text-align: center;
+  }
   input {
     display: block;
-    margin: 10px;
+    margin: 1em auto;
     padding: 10px;
     width: 200px;
   }
+  button {
+    margin: auto;
+  }
   p {
+    text-align: center;
     color: red;
   }
 `;

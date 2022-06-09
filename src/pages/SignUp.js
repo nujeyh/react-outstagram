@@ -1,13 +1,14 @@
 import React, { useRef, useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { signUpFB } from "../redux/modules/userSlice";
-import { useNavigate } from "react-router-dom";
 
-import styled from "styled-components";
+import { signUpFB } from "../redux/modules/userSlice";
+
+import { FormWrap } from "./SignIn";
 
 const SignUp = () => {
   const emailRef = useRef("");
@@ -18,8 +19,6 @@ const SignUp = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const users = useSelector((state) => state.user);
 
   // 입력값 유효성 검사
   const verifySignIn = (email, password1, password2) => {
@@ -66,7 +65,7 @@ const SignUp = () => {
     )
       return;
     try {
-      const user = await createUserWithEmailAndPassword(
+      await createUserWithEmailAndPassword(
         auth,
         emailRef.current.value,
         passwordRef.current.value
@@ -112,20 +111,10 @@ const SignUp = () => {
         required
       />
       <p>{error}</p>
-      <button type="submit">가입하기</button>
+      <div>
+        <button type="submit">가입하기</button>
+      </div>
     </FormWrap>
   );
 };
-const FormWrap = styled.form`
-  height: 100vh;
-  input {
-    display: block;
-    margin: 10px;
-    padding: 10px;
-    width: 200px;
-  }
-  p {
-    color: red;
-  }
-`;
 export default SignUp;

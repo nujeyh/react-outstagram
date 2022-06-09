@@ -70,7 +70,7 @@ const Post = ({ postObj, isOwner }) => {
               <Layout.PostLayout1 onClick={onClickPost}>
                 <span>{postObj.text}</span>
                 <Layout.ImgWrap>
-                  <img src={postObj.fileUrl} />
+                  <img src={postObj.fileUrl} alt="preview" />
                 </Layout.ImgWrap>
               </Layout.PostLayout1>
             </div>
@@ -78,7 +78,7 @@ const Post = ({ postObj, isOwner }) => {
           2: (
             <Layout.PostLayout1 onClick={onClickPost}>
               <Layout.ImgWrap>
-                <img src={postObj.fileUrl} />
+                <img src={postObj.fileUrl} alt="preview" />
               </Layout.ImgWrap>
               <span>{postObj.text}</span>
             </Layout.PostLayout1>
@@ -87,7 +87,7 @@ const Post = ({ postObj, isOwner }) => {
             <Layout.PostLayout3 onClick={onClickPost}>
               <span>{postObj.text}</span>
               <Layout.ImgWrap>
-                <img src={postObj.fileUrl} />
+                <img src={postObj.fileUrl} alt="preview" />
               </Layout.ImgWrap>
             </Layout.PostLayout3>
           ),
