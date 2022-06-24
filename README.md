@@ -1,5 +1,6 @@
 # 로그인 사용자용 매거진 사이트
 - 일정 : 2022.06.03 ~ 2022.06.09
+- 사용 기술 : React, redux-toolkit, styled-components, firebase
 
 ## 요구사항
 
